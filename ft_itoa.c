@@ -12,34 +12,71 @@
 
 #include "libft.h"
 
-static int		ft_count_nbr(int nb)
+static size_t		ft_count_nbr(int nb)
 {
-	unsigned	nbr;
-	int			total;
+	size_t i;
 
+	i = 0;
+	if (nb == 0)
+		return (1);
 	if (nb < 0)
 	{
-		total++;
-		nbr = nb * -1;
+		nb = -nb;
+		i++;
 	}
-	else
-		nbr = nb;
-	if (nbr > 9)
+	while (nb != 0)
 	{
-		total++;
-		ft_putnbr(nbr / 10);
+		nb /= 10;
+		i++;
 	}
-	else
-		total++;
-	return (total);
+	return (i);
 }
 
-
-char		*ft_itoa(int n)
+static char			*ft_strrev(char *str)
 {
-	char *dst;
+	int		i;
+	int		j;
+	char	tempo;
 
-	if (!(dst = (char*)ft_memalloc(sizeof(char) * ft_count_nbr(n) + 1)))
+	i = 0;
+	j = 0;
+	tempo = 0;
+	while (str[i] != '\0')
+		i++;
+	while (j < i / 2)
+	{
+		tempo = str[j];
+		str[j] = str[i - j - 1];
+		str[i - j - 1] = tempo;
+		j++;
+	}
+	return (str);
+}
+
+char				*ft_itoa(int n)
+{
+	unsigned int	m;
+	size_t			i;
+	char			*dst;
+	int				neg;
+
+	i = 0;
+	m = n;
+	neg = 0;
+	if (!(dst = ft_strnew(ft_count_nbr(n))))
 		return (NULL);
-
+	if ((neg = n) < 0)
+		m = -n;
+	if (m == 0)
+		dst[i] = '0';
+	while (m != 0)
+	{
+		dst[i++] = m % 10 + '0';
+		m /= 10;
+	}
+	if (neg < 0)
+		dst[i] = '-';
+	ft_strrev(dst);
+	dst[i + 1] = '\0';
+	return (dst);
 }
