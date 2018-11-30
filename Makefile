@@ -69,7 +69,13 @@ SRC_NAME = ft_memset.c\
 			ft_putendl_fd.c\
 			ft_putnbr_fd.c\
 			ft_strsplit.c\
-			ft_itoa.c
+			ft_itoa.c\
+			ft_lstnew.c\
+			ft_lstdelone.c\
+			ft_lstdel.c\
+			ft_lstadd.c\
+			ft_lstiter.c\
+			ft_lstmap.c
 
 OBJ_PATH = obj
 
