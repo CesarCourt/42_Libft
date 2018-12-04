@@ -31,11 +31,11 @@ int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
 char			*ft_strcat(char *s1, const char *s2);
+char			*ft_strncat(char *s1, const char *s2, size_t n);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 size_t			ft_strlen(const char *s);
-char			*ft_strncat(char *s1, const char *s2, size_t n);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
@@ -83,5 +83,12 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void			ft_union(char *s1, char *s2);
+void			ft_sort_wordtab(char **tab);
+void			ft_sort_int_tab(int *tab, int size);
+char			*ft_show_match(const char *s1, char *s2);
+char			*ft_strnjoin(char const *s1, char const *s2, size_t n);
+char			*ft_strndup(const char *s1, size_t n);
+char			*ft_stpcpy(char *dst, char const *src);
 
 #endif

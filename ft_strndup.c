@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cecourt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 16:56:49 by cecourt           #+#    #+#             */
-/*   Updated: 2018/11/12 16:56:50 by cecourt          ###   ########.fr       */
+/*   Created: 2018/12/04 17:47:50 by cecourt           #+#    #+#             */
+/*   Updated: 2018/12/04 17:47:51 by cecourt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_bzero(void *s, size_t n)
+char			*ft_strndup(const char *s1, size_t n)
 {
-	ft_memset(s, '\0', n);
+	char *new;
+
+	if (!(new = ft_strnew(n)))
+		return (NULL);
+	ft_strncpy(new, s1, n);
+	return (new);
 }

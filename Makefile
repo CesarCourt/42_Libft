@@ -6,7 +6,7 @@
 #    By: cecourt <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/12 16:35:07 by cecourt           #+#    #+#              #
-#    Updated: 2018/11/12 16:35:10 by cecourt          ###   ########.fr        #
+#    Updated: 2018/12/04 17:36:16 by cecourt          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,14 @@ SRC_NAME = ft_memset.c\
 			ft_lstdel.c\
 			ft_lstadd.c\
 			ft_lstiter.c\
-			ft_lstmap.c
+			ft_lstmap.c\
+			ft_union.c\
+			ft_sort_wordtab.c\
+			ft_sort_int_tab.c\
+			ft_show_match.c\
+			ft_strnjoin.c\
+			ft_strndup.c\
+			ft_stpcpy.c
 
 OBJ_PATH = obj
 
@@ -94,10 +101,6 @@ $(NAME): $(OBJ)
 $(OBJ_PATH)/%.o: $/%.c $(INC_FILES)
 	@mkdir -p obj
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
-
-norme:
-	@norminette $(SRC_NAME)
-	@norminette *.h
 
 clean:
 	rm -rf obj
