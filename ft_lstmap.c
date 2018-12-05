@@ -20,15 +20,18 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 
 	if (!lst || !f)
 		return (NULL);
+
 	tmp = lst;
 	fresh = f(tmp);
 	start = fresh;
 	tmp = tmp->next;
+
 	while (tmp)
 	{
 		fresh->next = f(tmp);
 		fresh = fresh->next;
 		tmp = tmp->next;
 	}
+	
 	return (start);
 }

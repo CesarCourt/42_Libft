@@ -42,8 +42,7 @@ static char		**ft_split2(char **res, char const *str, char c, int tot)
 	while (words < tot)
 	{
 		letters = 0;
-		if (!(res[words] = (char*)ft_memalloc(sizeof(char) *
-			ft_strlen(str) + 1)))
+		if (!(res[words] = (char*)ft_memalloc(sizeof(char) * ft_strlen(str) + 1)))
 			return (NULL);
 		while (str[i] == c)
 			i++;
@@ -63,8 +62,7 @@ char			**ft_strsplit(char const *s, char c)
 
 	if (s && c)
 		tot = ft_nb_words(s, c);
-	if (!s || !(dst = (char**)ft_memalloc(sizeof(char*) *
-		ft_nb_words(s, c) + 1)))
+	if (!s || !(dst = (char**)ft_memalloc(sizeof(char*) * (ft_nb_words(s, c) + 1))))
 		return (NULL);
 	dst = ft_split2(dst, s, c, tot);
 	return (dst);
